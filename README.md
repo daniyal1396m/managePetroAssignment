@@ -36,7 +36,7 @@ Step Seven :
 ```
 http://localhost
 ```
-Step Eight :  PhpMyadmin
+Step Eight :  Phpmyadmin
 ```
 http://localhost:8008 
 ```
