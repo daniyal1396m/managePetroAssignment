@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('trucks', function (Blueprint $table) {
             $table->id();
+            $table->string('driver_name', 50);
+            $table->string('truck_code', 15)->nullable();
             $table->timestamps();
+            $table->softdeletes();
         });
     }
 

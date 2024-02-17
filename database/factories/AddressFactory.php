@@ -1,0 +1,27 @@
+<?php
+
+    namespace Database\Factories;
+
+    use Illuminate\Database\Eloquent\Factories\Factory;
+
+    /**
+     * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Address>
+     */
+    class AddressFactory extends Factory
+    {
+        /**
+         * Define the model's default state.
+         *
+         * @return array<string, mixed>
+         */
+        public function definition(): array
+        {
+            return [
+                'client_id' => rand(1, 20),
+                'lat' => fake()->latitude(),
+                'long' => fake()->longitude(),
+                'title' => fake()->title(),
+                'description' => fake()->address(),
+            ];
+        }
+    }

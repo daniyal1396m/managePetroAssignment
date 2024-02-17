@@ -41,3 +41,7 @@ Step Eight :  Phpmyadmin
 ```
 http://localhost:8008 
 ```
+Step Nine :  cd to front project
+```
+npm install && npm start 
+```
