@@ -24,7 +24,7 @@
                 if (Hash::check($request->password, $client->password)) {
                     $token = $client->createToken($client->name)->accessToken;
                     $client->update(['api_token' => $token->token]);
-                    $response = ['token' => $token, '1a47feed85ead3706dad9d5f1724c31e' => '62608e08adc29a8d6dbc9754e659f125'];
+                    $response = ['token' => $token->token, 'role' => '62608e08adc29a8d6dbc9754e659f125'];
                     return response($response, 200);
                 } else {
                     $response = ["message" => "Password mismatch"];
@@ -35,7 +35,7 @@
                 if (Hash::check($request->password, $user->password)) {
                     $token = $user->createToken($user->name)->accessToken;
                     $user->update(['api_token' => $token->token]);
-                    $response = ['token' => $token, '1a47feed85ead3706dad9d5f1724c31e' => '21232f297a57a5a743894a0e4a801fc3'];
+                    $response = ['token' => $token->token, 'role' => '21232f297a57a5a743894a0e4a801fc3'];
                     return response($response, 200);
                 } else {
                     $response = ["message" => "Password mismatch"];
@@ -52,6 +52,7 @@
         {
             $token = $request->user()->token();
             $token->revoke();
+            auth()->user()->update(['api_token' =>null]);
             $response = ['message' => 'You have been successfully logged out!'];
             return response($response, 200);
         }
